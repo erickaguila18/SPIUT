@@ -1,0 +1,84 @@
+doctype
+html(lang='es')
+	head
+		title='Publicaciones'
+	
+		script(src="../js/jquery-1.11.2.min.js")
+		script(src="../js/bootstrap.min.js")
+		link(href="../css/bootstrap.min.css" rel="stylesheet")
+		link(href="../css/estilo.css" rel="stylesheet")
+
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		meta(charset='utf-8')
+	body
+
+		nav(class="navbar navbar-default navbar-fixed-top" id="blur")
+				div(class="container-fluid")
+					div(class="navbar-header")
+						button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#hid")
+							span(class="icon-bar")
+							span(class="icon-bar")
+							span(class="icon-bar")
+						img(class="img-responsive" href="#" src="../img/logo.png")
+					div(class="collapse navbar-collapse" id="hid")
+						ul(class="nav navbar-nav navbar-right")
+							li: a(href="/publicaciones")
+								img(src="../img/home.png" onclick="android();"  class=" img-responsive img-circle center-block")
+							li: a(href="/publicadas")
+								img(src="../img/locate.png" onclick="android();"  class=" img-responsive img-circle center-block")
+		br
+		br
+		br
+
+		div(class="container")
+				form(method="POST", action="/create")
+					center
+						div(style="max-width:900px; min-width:200px;height:60px;")
+							h3(class="pull-left") Publicar
+
+						div(style="max-width:500px; min-width:100px;height:160px;")
+						
+							textarea(name='publicacion' style="max-width:410px; min-width:100px; width:100%"  ROWS="6" id="publicacion" autofocus="autofocus" placeholder="¿Qué piensas publicar?")
+								
+
+							input(type="hidden" value="Alumno" name="usuario")
+							br
+							div(class="pull-right")
+								div(style="display:inline")
+
+										label(for="archivo" style="padding-right:10px")
+											img( href="#" src="../img/pdf.png" title="Adjuntar PDF")
+										input(id="archivo" type="file" style="display: none;")
+
+										label(for="foto" style="padding-right:10px")
+											img( href="#" src="../img/foto.png" title="Adjuntar Imagen")
+										input(id="foto" type="file" style="display: none;")
+									
+										
+
+										label(for="area" style="padding-right:10px")
+											select(class="form-control" name="area" id="area")
+												option(value="DATIC") DATIC
+												option(value="DACEA") DACEA
+												option(value="DATIF") DATIF
+												option(value="DAMI") DAMI
+
+										
+
+									button(class="btn btn-info" style="float:center" type="submit") Publicar						
+						div(style="max-width:900px; min-width:200px;height:150px;")
+							h4(class="pull-left") Publicaciones Recientes
+							br
+							br
+							if(pub)
+									each p in pub
+										br
+										div(style="max-width:900px; min-width:200px;height:150px;  background-color:#E9EAED")
+											a #{p.contenido}
+											a(href="/publicaciones/#{p._id}"): img(src="../img/edit.png" title="Editar")
+										br
+		
+		footer(class="footer" ) 
+
+
+						

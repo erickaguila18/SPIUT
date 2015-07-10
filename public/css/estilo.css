@@ -1,0 +1,51 @@
+
+
+.footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:15px;
+   width:100%;
+    background-color: #00c3f5;
+}
+
+/* IE 6 */
+* html #footer {
+   position:absolute;
+   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+
+
+
+  a{
+    font-size: 15px;
+  }
+
+body {
+  background-color:white;
+}
+
+  @media only screen and (min-device-width : 468px) and (max-device-width : 2024px) {
+    body {
+       background-color:white;
+      -moz-background-size: auto;
+      -webkit-background-size: auto;
+      background-size: auto;
+    }
+}
+
+#blur{
+  background-color:#00c3f5;
+}
+
+
+
+#transparencia{
+   opacity: .80;
+   -moz-opacity: .80;
+   filter:alpha(opacity=80);
+   background-color:#00c3f5;
+  
+}
+
+
